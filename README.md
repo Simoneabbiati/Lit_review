@@ -1,6 +1,6 @@
-# Scripts Overview
+# Academic Paper Abstract Analyzer
 
-This repository contains the following scripts:
+This repository contains a collection of Python scripts designed to automate the process of uploading, retrieving, and analyzing academic paper abstracts. The workflow includes uploading a CSV file with a list of academic papers, retrieving their DOIs, fetching the abstracts, and finally categorizing and analyzing the abstracts using a custom application.
 
 ## open_dois.py:
 
