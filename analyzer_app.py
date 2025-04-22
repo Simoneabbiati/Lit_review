@@ -1,5 +1,38 @@
 # -*- coding: utf-8 -*-
-# analyzer_app_v1_17.py # Version with Indentation Fix at st.set_page_config + Bigger Points & Black Text for 3D Plot + ...
+# analyzer_app_v1_17.py # Version with Indentation Fix at st.set_page_config + Bigger Points & Black Text for 3D Plot 
+
+"""
+This script is a Streamlit application designed to analyze and visualize bibliographic data, specifically focusing on abstracts. It performs keyword analysis, topic modeling, and 3D visualization of abstracts. The application allows users to upload a CSV file containing bibliographic information, select analysis parameters, and view the results.
+
+### Key Features:
+1. **Keyword Analysis**: Extracts and displays the most significant keywords or phrases from the abstracts using TF-IDF scoring.
+2. **Topic Modeling**: Discovers and visualizes topics within the abstracts using Latent Dirichlet Allocation (LDA) or Non-negative Matrix Factorization (NMF).
+3. **3D Visualization**: Generates an interactive 3D plot of the abstracts using PCA for dimensionality reduction, colored by a selected grouping column.
+4. **Topic Distribution Visualization**: Visualizes the distribution of topics across different groups within the dataset.
+5. **User-Friendly Interface**: Built with Streamlit, the application provides an intuitive interface for uploading data, selecting analysis parameters, and viewing results.
+6. **Customizable Parameters**: Users can customize the number of keywords, topics, words per topic, and n-gram size for the analyses.
+
+### Dependencies:
+- streamlit
+- pandas
+- scikit-learn (for TF-IDF, LDA, NMF, PCA)
+- nltk (for stopwords)
+- plotly (for 3D visualization)
+
+### Configuration:
+The script includes default configuration values for the number of keywords, topics, words per topic, and n-gram size. These values can be adjusted through the Streamlit interface.
+
+### Usage:
+1. Install the required dependencies using `pip install -r requirements.txt`.
+2. Run the script using `streamlit run analyzer_app_v1_17.py`.
+3. Upload a CSV file containing bibliographic information through the Streamlit UI.
+4. Select the analysis parameters, such as the number of keywords, topics, words per topic, and n-gram size.
+5. Choose the analysis type (Keyword Analysis, Topic Modeling, 3D Visualization, or Topic Distribution Visualization).
+6. View the analysis results and visualizations within the Streamlit app.
+
+### Note:
+This script is designed for educational and research purposes. Ensure that your use of this script complies with the terms of service and legal guidelines of the data being analyzed.
+"""
 
 import streamlit as st
 import pandas as pd
