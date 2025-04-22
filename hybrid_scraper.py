@@ -1,6 +1,61 @@
 # -*- coding: utf-8 -*-
 # hybrid_scraper_v1_8.py
 
+"""
+This script is a hybrid web scraper designed to automate the process of extracting abstracts and publication dates from academic papers.
+It integrates multiple techniques, including rule-based scraping, JSON-LD parsing, and optional fallbacks using Crossref API and
+a local language model (LLM) for abstract extraction. The script is built using Streamlit for the user interface, allowing users
+to upload a CSV file containing bibliographic information and process it to retrieve the required data.
+
+### Key Features:
+1. **Rule-Based Scraping**: The script uses a set of predefined CSS selectors and structural rules to extract abstracts and
+   publication dates from web pages. It prioritizes JSON-LD metadata, meta tags, and structural HTML elements.
+2. **JSON-LD Parsing**: The script extracts abstracts and dates from JSON-LD scripts embedded in web pages, which are often
+   used for structured data in scholarly articles.
+3. **Crossref API Fallback**: If the input CSV does not contain DOIs or URLs, the script can query the Crossref API to find
+   DOIs based on the paper titles. This fallback requires the `habanero` library and a valid email for the API requests.
+4. **LLM Fallback**: If the rule-based scraping and Crossref fallback do not yield satisfactory results, the script can use a
+   local language model (LLM) to extract abstracts from the filtered HTML content. This fallback requires the `transformers`
+   library and a suitable LLM model.
+5. **Truncation Detection and Retry**: The script includes logic to detect potentially truncated abstracts and retry the
+   extraction using structural rules if truncation is suspected.
+6. **Robust Date Parsing**: The script uses the `dateutil` library for robust date parsing, handling various date formats and
+   falling back to regex patterns if necessary.
+7. **Streamlit UI**: The script provides a user-friendly interface built with Streamlit, allowing users to upload a CSV file,
+   configure options, and view the processing results. Users can also download the results as CSV or Excel files.
+8. **Logging and Error Handling**: The script includes comprehensive logging and error handling to provide feedback on the
+   processing status and help diagnose issues.
+
+### Dependencies:
+- streamlit
+- pandas
+- requests
+- beautifulsoup4
+- lxml (optional, for faster HTML parsing)
+- habanero (optional, for Crossref API)
+- fuzzywuzzy (optional, for improved title matching with Crossref)
+- transformers (optional, for LLM fallback)
+- torch or tensorflow (optional, required by transformers)
+- python-dateutil (for robust date parsing)
+
+### Configuration:
+The script includes various configuration options, such as request delays, domain-specific delays, headers for HTTP requests,
+and thresholds for title similarity and abstract truncation detection. These options can be adjusted to fine-tune the scraping
+behavior and ensure compliance with the target websites' rate limits and terms of service.
+
+### Usage:
+1. Install the required dependencies using `pip install -r requirements.txt`.
+2. Run the script using `streamlit run hybrid_scraper_v1_8.py`.
+3. Upload a CSV file containing bibliographic information through the Streamlit UI.
+4. Configure the options in the sidebar, such as enabling Crossref and LLM fallbacks.
+5. Click the "Start Processing" button to begin the scraping process.
+6. View the processing results and download the output as CSV or Excel files.
+
+### Note:
+This script is designed for educational and research purposes. Ensure that your use of this script complies with the terms of
+service and legal guidelines of the websites being scraped.
+"""
+
 import streamlit as st
 import pandas as pd
 import requests
