@@ -2,7 +2,7 @@ Scripts Overview
 
 This repository contains the following scripts:
 
-# open_dois.py:
+## open_dois.py:
 
 Description: This script is designed to open DOIs (Digital Object Identifiers) and retrieve metadata or perform specific actions related to DOIs.
 Usage: Provide instructions on how to run the script and any dependencies required.
