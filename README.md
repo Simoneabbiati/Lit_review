@@ -5,7 +5,7 @@ This repository contains a collection of Python scripts designed to automate the
 ## open_dois.py: 
 This script is designed to open DOIs (Digital Object Identifiers) and retrieve metadata or perform specific actions related to DOIs.
 
-##zero_shot_analyzer.py: 
+## zero_shot_analyzer.py: 
 This script performs zero-shot analysis on text data. It can classify text into predefined categories without prior training.
 
 ## process_scopus.py: 
